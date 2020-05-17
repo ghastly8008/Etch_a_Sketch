@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<style>
+    html * {
+        font-family: Arial !important;
+    }
+
+    h1 {
+    font-family: calibri, arial;
+    margin-top: 100px;
+    color: black;
+}
+
+    /* body::after {
+        content: "";
+        background: url(https://images.unsplash.com/photo-1562229125-6d6075419a22?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80);
+        opacity: 0.6;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+    } */
+
+    button {
+        padding: 10px;
+        width: 120px;
+        background: white;
+    }
+
+    p {
+        font-size: 24px;
+    }
+
+    /* .container {
+        display: grid;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    } */
+
+    #canvas {
+    display: inline-grid;
+    width: 500px;
+    height: 500px;
+    grid-template-columns: repeat(var(--n), 1fr);
+    grid-template-rows: repeat(var(--n), 1fr);
+    border: 1px solid lightgray;
+    margin-top: 100px;
+}
+
+    /* .container2 {
+        position: absolute;
+        margin-left: 32px;
+    } */
+
+    .box {
+        background: white;
+        border: black 1px solid;
+        width: 18px;
+        height: 18px;
+        margin: 0 auto;
+        margin-top: 0;
+        cursor: pointer;
+        display: inline-block;
+        float: left;
+    }
+
+    .drawYellow {
+        background: yellow;
+    }
+
+    .drawRed {
+        background: red;
+    }
+
+    .drawGreen {
+        background: green;
+    }
+
+    .drawBlue {
+        background: blue;
+    }
+
+
+    .row {
+        display: block;
+        float: left;
+        width: 100%;
+    }
+</style>
+
+<head>
+    <title>Etch a Sketch</title>
+</head>
+
+<body>
+    <h1>Etch a Sketch</h1>
+    <label style="font-size:20px; padding-left:32px;">Enter Grid Dimensions: </label>
+    <input id="myInput" type="text" value='Enter Value' style="padding:8px"></input>
+    <button id="myBtn" type='button'>Submit</button>
+    <div class="container2">
+        <p>Select color to draw with below</p>
+        <button id="yellow" type='button' onclick="changeColor('yellow')">Yellow</button>
+        <button id="red" type='button' onclick="changeColor('red')">Red</button>
+        <button id="green" type='button' onclick="changeColor('green')">Green</button>
+        <button id="blue" type='button' onclick="changeColor('blue')">Blue</button>
+        <button id="delete" type='button' onclick="changeColor('delete')">Eraser</button>
+    </div>
+
+    <div class="container" id="canvas">
+        <div id="boxParent"></div>
+    </div>
+</body>
+
+<script src="etch_a_sketch.js"></script>
+
+
+</html>
