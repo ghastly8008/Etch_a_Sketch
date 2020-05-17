@@ -4,48 +4,31 @@ const p = document.createElement('p'); //creates new node
 var pText = document.createTextNode(`Please hit the "reset" button first`); //creates textNode
 p.appendChild(pText);
 
-// function checkSize (size) {
-//     if (size >= 16 && size <= 100) {
-//       document.documentElement.style.setProperty("--n", size);
-//       createDivs(size);
-//     } else {
-//         alert('Please enter a number that is greater than 16 and smaller than 100.');
-//         clearCanvas();
-//     }
-// }
-
-count = 0;
-
-function makeBlocks() {
-    var c = document.getElementById('boxParent');
+function checkSize (choice) {
     var submit = document.getElementById("myInput");
     var choice = submit.value;
-    count++;
-    if (choice <= 16 || choice >= 100) {
-          alert('Please enter a number that is greater than 16 and smaller than 100.');
+    if (choice <= 100) {
+      document.documentElement.style.setProperty("--n", choice);
+      makeBlocks(choice);
+    } else {
+        alert('Please enter a number smaller than 100');
     }
-    if (count > 1) {
-        c.innerHTML = "";
-    }
-    for (var i = 0; i < choice; i++) {
-        var row = document.createElement('div');
-        row.className = "row";
-        row.id = `rowID${i}`;
-        for (var j = 0; j < choice; j++) {
-            var box = document.createElement('div');
-            box.className = "box";
-            box.id = `boxID${i}${j}`;
-            box.addEventListener('mouseover', colorIn);
-            row.appendChild(box);
-        }
-        document.getElementById('boxParent').appendChild(row);
+}
+
+function makeBlocks(num) {
+    canvas.innerHTML = "";
+    for (var i = 0; i < num ** 2; i++) {
+        const container = document.querySelector('#canvas');
+        const div = document.createElement('div');
+        div.classList.add('div');
+        div.addEventListener('mouseover', colorIn);
+        container.appendChild(div);
     }
 }
 
 var colorSelected = 'delete';
 function changeColor(color) {
     colorSelected = color;
-    //colorSelected = button.id;
 }
 
 function colorIn() {
@@ -84,6 +67,6 @@ function colorIn() {
 }
 
 
-document.getElementById("myBtn").addEventListener('click', makeBlocks);
+document.getElementById("myBtn").addEventListener('click', checkSize);
 
 

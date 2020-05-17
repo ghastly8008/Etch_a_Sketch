@@ -6,10 +6,10 @@
     }
 
     h1 {
-    font-family: calibri, arial;
-    margin-top: 100px;
-    color: black;
-}
+        font-family: calibri, arial;
+        margin-top: 70px;
+        color: black;
+    }
 
     /* body::after {
         content: "";
@@ -33,30 +33,27 @@
         font-size: 24px;
     }
 
-    /* .container {
-        display: grid;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    } */
-
     #canvas {
-    display: inline-grid;
-    width: 500px;
-    height: 500px;
-    grid-template-columns: repeat(var(--n), 1fr);
-    grid-template-rows: repeat(var(--n), 1fr);
-    border: 1px solid lightgray;
-    margin-top: 100px;
-}
+        display: inline-grid;
+        width: 600px;
+        height: 600px;
+        grid-template-columns: repeat(var(--n), 1fr);
+        grid-template-rows: repeat(var(--n), 1fr);
+        border: 1px solid lightgray;
+        margin-top: 100px;
+        margin-left: 10%;
+    }
 
-    /* .container2 {
-        position: absolute;
-        margin-left: 32px;
+    .container2 {
+        margin-left: 5%;
+    }
+
+
+    /* :root {
+        --n: 16;
     } */
 
-    .box {
+    /* .box {
         background: white;
         border: black 1px solid;
         width: 18px;
@@ -66,7 +63,7 @@
         cursor: pointer;
         display: inline-block;
         float: left;
-    }
+    } */
 
     .drawYellow {
         background: yellow;
@@ -97,22 +94,21 @@
 </head>
 
 <body>
+    <div class="container2">
     <h1>Etch a Sketch</h1>
     <label style="font-size:20px; padding-left:32px;">Enter Grid Dimensions: </label>
     <input id="myInput" type="text" value='Enter Value' style="padding:8px"></input>
     <button id="myBtn" type='button'>Submit</button>
-    <div class="container2">
-        <p>Select color to draw with below</p>
+        <p>Select color to draw with below:</p>
+        <div style="padding-left:32px;">
         <button id="yellow" type='button' onclick="changeColor('yellow')">Yellow</button>
         <button id="red" type='button' onclick="changeColor('red')">Red</button>
         <button id="green" type='button' onclick="changeColor('green')">Green</button>
         <button id="blue" type='button' onclick="changeColor('blue')">Blue</button>
         <button id="delete" type='button' onclick="changeColor('delete')">Eraser</button>
+        </div>
     </div>
-
-    <div class="container" id="canvas">
-        <div id="boxParent"></div>
-    </div>
+    <div id="canvas"></div>
 </body>
 
 <script src="etch_a_sketch.js"></script>
